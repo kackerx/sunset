@@ -1,0 +1,25 @@
+{
+	"name": "sunset",
+	"displayName": "Sunset",
+	"description": "vs-code theme",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.99.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Sunset Dark",
+				"uiTheme": "vs-dark",
+				"path": "./themes/Sunset Dark-color-theme.json",
+				"semanticHighlighting": true
+			}
+		]
+	},
+	"__metadata": {
+		"size": 41888
+	}
+}
