@@ -9,10 +9,82 @@
   "scopeName": "source.go.custom",
   "patterns": [
     {
+      "include": "#method_receiver"
+    },
+    {
+      "include": "#key-words"
+    },
+    {
+      "include": "#property_access_public"
+    },
+    {
+      "include": "#property_access_private"
+    },
+    {
       "include": "#statements"
     }
   ],
   "repository": {
+    "property_access_private": {
+      "comment": "访问对象的私有属性（小写开头）",
+      "match": "(?<=\\.)([a-z][\\w]*)\\b(?!\\s*\\()",
+      "captures": {
+        "1": {
+          "name": "variable.other.property.private.go"
+        }
+      }
+    },
+    "property_access_public": {
+      "comment": "访问对象的公有属性（大写开头）",
+      "match": "(?<=\\.)([A-Z][\\w]*)\\b(?!\\s*\\()",
+      "captures": {
+        "1": {
+          "name": "variable.other.property.public.go"
+        }
+      }
+    },
+    "method_receiver": {
+      "comment": "方法接收者 (值接收者或指针接收者)",
+      "match": "\\b(func)\\s*(\\()\\s*(\\*)?([a-zA-Z_][a-zA-Z0-9_]*)\\s+(?:\\*)?[a-zA-Z0-9_\\.]+\\s*(\\))\\s+([A-Za-z_][A-Za-z0-9_]*)(?=\\()",
+      "captures": {
+        "1": {
+          "name": "keyword.function.go"
+        },
+        "2": {
+          "name": "punctuation.definition.begin.bracket.round.go"
+        },
+        "3": {
+          "name": "keyword.operator.address.go"
+        },
+        "4": {
+          "name": "variable.parameter.receiver.go"
+        },
+        "5": {
+          "name": "punctuation.definition.end.bracket.round.go"
+        },
+        "6": {
+          "name": "entity.name.function.go"
+        }
+      }
+    },
+    "key-words": {
+      "patterns": [
+        {
+          "include": "#err-string"
+        },
+        {
+          "include": "#struct_field_case"
+        }
+      ]
+    },
+    "err-string": {
+      "patterns": [
+        {
+          "name": "variable.language.err.go",
+          "match": "\\b(err)\\b"
+        }
+      ]
+    },
     "statements": {
       "patterns": [
         {
@@ -1854,6 +1926,52 @@
           "include": "#struct_variable_types_fields_multi"
         },
         {
+          "comment": "私有字段（小写开头）",
+          "match": "\\s*\\b([a-z][\\w]*)\\b\\s+([^\\`\"\\/]+)",
+          "captures": {
+            "1": {
+              "name": "variable.other.property.private.go"
+            },
+            "2": {
+              "patterns": [
+                {
+                  "include": "#type-declarations-without-brackets"
+                },
+                {
+                  "include": "#parameter-variable-types"
+                },
+                {
+                  "match": "(?:\\w+)",
+                  "name": "entity.name.type.go"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "comment": "公共字段（大写开头）",
+          "match": "\\s*\\b([A-Z][\\w]*)\\b\\s+([^\\`\"\\/]+)",
+          "captures": {
+            "1": {
+              "name": "variable.other.property.public.go"
+            },
+            "2": {
+              "patterns": [
+                {
+                  "include": "#type-declarations-without-brackets"
+                },
+                {
+                  "include": "#parameter-variable-types"
+                },
+                {
+                  "match": "(?:\\w+)",
+                  "name": "entity.name.type.go"
+                }
+              ]
+            }
+          }
+        },
+        {
           "comment": "one line - single type",
           "match": "(?:(?<=\\{)\\s*((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:[\\w\\.\\*\\[\\]]+))\\s*(?=\\}))",
           "captures": {
@@ -2986,24 +3104,6 @@
       "comment": "all other variables",
       "match": "\\w+",
       "name": "variable.other.go"
-    },
-    "tttt": {
-      "comment": "tttt",
-      "match": "\\s+([A-Z][a-zA-Z0-9]*)\\s+(?:[*])?[a-zA-Z0-9.]+",
-      "captures": {
-        "1": {
-          "name": "variable.other.property.exported.go"
-        }
-      }
-    },
-    "tttt2": {
-      "comment": "tttt2",
-      "match": "\\s+([a-z][a-zA-Z0-9]*)\\s+(?:[*])?[a-zA-Z0-9.]+",
-      "captures": {
-        "1": {
-          "name": "variable.other.property.unexported.go"
-        }
-      }
     }
   }
 }
