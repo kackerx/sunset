@@ -1,6 +1,9 @@
 {
 	"name": "Sunset Dark",
 	"colors": {
+		"tab.activeBorder": "#FFD866",
+		"tab.lastPinnedBorder": "#C8C5B1",
+		"tab.inactiveModifiedBorder": "#007acc",
 		"editor.background": "#2C2525",
 		"editor.foreground": "#FCFCFA",
 		"activityBarBadge.background": "#007acc",
@@ -9,13 +12,40 @@
 		"sideBar.border": "#2C2525",
 		"sideBar.foreground": "#FCFCFA",
 		"tab.activeModifiedBorder": "#007acc",
-		"tab.activeBorder": "#FFD866",
-		"tab.lastPinnedBorder": "#C8C5B1",
-		// "tab.inactiveBackground": "#2C2525",
-		"tab.inactiveModifiedBorder": "#007acc",
 		"editor.lineHighlightBackground": "#4E4E4E"
 	},
 	"tokenColors": [
+		{
+			"name": "Variable Parameter Receiver Go",
+			"scope": [
+				"variable.parameter.receiver.go",
+				"source.go"
+			],
+			"settings": {
+				"foreground": "#9CA6B0"
+			}
+		},
+		{
+			"name": "Variable Other Property Private Go",
+			"scope": [
+				"variable.other.property.private.go",
+				"source.go"
+			],
+			"settings": {
+				"foreground": "#E36C74"
+			}
+		},
+		{
+			"name": "Variable Language Errty Private Go",
+			"scope": [
+				"variable.language.err.go",
+				"source.go"
+			],
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#97B8D5"
+			}
+		},
 		{
 			"name": "Keyword Operator Assignment Go",
 			"scope": [

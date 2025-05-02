@@ -17,6 +17,25 @@
 				"path": "./themes/Sunset Dark-color-theme.json",
 				"semanticHighlighting": true
 			}
+		],
+		"languages": [
+			{
+				"id": "go",
+				"extensions": [
+					".go"
+				],
+				"aliases": [
+					"golang"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "go",
+				"scopeName": "source.go.custom",
+				"path": "./syntaxes/go.custom.tmLanguage.json"
+			}
 		]
 	},
 	"__metadata": {
