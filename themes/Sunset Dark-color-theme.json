@@ -12,7 +12,14 @@
 		"sideBar.border": "#2C2525",
 		"sideBar.foreground": "#FCFCFA",
 		"tab.activeModifiedBorder": "#007acc",
-		"editor.lineHighlightBackground": "#4E4E4E"
+		"editor.lineHighlightBackground": "#4E4E4E",
+		"editorSuggestWidget.border": "#e36c74",
+		"peekViewEditor.background": "#2c2525",
+		// "peekViewEditor.matchHighlightBackground": "#000",
+		// "peekViewEditor.matchHighlightBorder": "#F8E71C",
+
+		"peekViewResult.background": "#2a2d30",
+		// "peekViewResult.selectionBackground": "#21426e"
 	},
 	"tokenColors": [
 		{
