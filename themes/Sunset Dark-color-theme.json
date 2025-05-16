@@ -17,9 +17,11 @@
 		"peekViewEditor.background": "#2c2525",
 		// "peekViewEditor.matchHighlightBackground": "#000",
 		// "peekViewEditor.matchHighlightBorder": "#F8E71C",
-
 		"peekViewResult.background": "#2a2d30",
 		// "peekViewResult.selectionBackground": "#21426e"
+		"editor.stackFrameHighlightBackground": "#5e3636",
+		"editor.focusedStackFrameHighlightBackground": "#7a3e3e",
+		"debugIcon.breakpointForeground": "#ff6464",
 	},
 	"tokenColors": [
 		{
@@ -703,6 +705,8 @@
 		"type.slice": "#0EDFB6",
 		"type.string": "#0EDFB6",
 		"type.defaultLibrary.string": "#FF6188",
+		"type.defaultLibrary.number": "#FF6188",
+		"type.defaultLibrary.bool": "#FF6188",
 		"type.interface": "#F2D0FF",
 		// "variable.pointer": "#FAFFF0",
 		"method.definition.signature": "#BDDB9E",
