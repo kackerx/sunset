@@ -687,24 +687,29 @@
       ]
     },
     "raw_string_literals": {
-      "comment": "Raw string literals",
+      "comment": "Raw string literals, especially for struct tags",
       "begin": "`",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.begin.go"
-        }
-      },
+      "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.go" }},
       "end": "`",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.end.go"
-        }
-      },
+      "endCaptures": { "0": { "name": "punctuation.definition.string.end.go" }},
       "name": "string.quoted.raw.go",
       "patterns": [
-        {
-          "include": "#string_placeholder"
-        }
+        { "include": "#struct_tag_key" },
+        { "match": ":", "name": "punctuation.separator.key-value.go" }, 
+        { 
+          "comment": "Double-quoted value within a struct tag",
+          "begin": "\"",
+          "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.go" }},
+          "end": "\"",
+          "endCaptures": { "0": { "name": "punctuation.definition.string.end.go" }},
+          "name": "string.quoted.double.struct-tag-value.go",
+          "patterns": [
+            { "include": "#string_escaped_char" },
+            { "include": "#struct_tag_subkey" },
+            { "match": ":", "name": "punctuation.separator.key-value.go" }
+          ]
+        },
+        { "include": "#string_placeholder" } 
       ]
     },
     "string_literals": {
@@ -3100,6 +3105,20 @@
       "comment": "all other variables",
       "match": "\\w+",
       "name": "variable.other.go"
+    },
+    "struct_tag_key": {
+      "comment": "Struct tag key like 'json' in `json:\"id\"`",
+      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=\\s*\\:)",
+      "captures": {
+        "1": { "name": "entity.name.tag.go" }
+      }
+    },
+    "struct_tag_subkey": {
+      "comment": "Struct tag sub-key like 'column' in `gorm:\"column:foo\"`",
+      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=\\s*\\:)",
+      "captures": {
+        "1": { "name": "entity.name.tag.subkey.go" }
+      }
     }
   }
 }

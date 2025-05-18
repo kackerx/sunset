@@ -25,6 +25,25 @@
 	},
 	"tokenColors": [
 		{
+			"name": "go ing",
+			"scope": [
+				"storage.type.string.go",
+				"source.go.custom"
+			],
+			"settings": {
+				"foreground": "#ff6188"
+			}
+		},
+		{
+			"name": "Go Struct Tag Key",
+			"scope": [
+				"entity.name.tag.go"
+			],
+			"settings": {
+				"foreground": "#67B7A4" // 替换为您想要的颜色
+			}
+		},
+		{
 			"name": "Variable Parameter Receiver Go",
 			"scope": [
 				"variable.parameter.receiver.go",
@@ -32,6 +51,16 @@
 			],
 			"settings": {
 				"foreground": "#9CA6B0"
+			}
+		},
+		{
+			"name": "Variable Other Property Public Go",
+			"scope": [
+				"variable.other.property.public.go",
+				"source.go"
+			],
+			"settings": {
+				"foreground": "#BDDB9E"
 			}
 		},
 		{
@@ -56,10 +85,45 @@
 			}
 		},
 		{
+			"name": "Go Keywords",
+			"scope": [
+				"keyword.package.go",
+				"keyword.control.import.go",
+				"keyword.control.go",
+				"keyword.channel.go",
+				"keyword.const.go",
+				"keyword.var.go",
+				"keyword.function.go",
+				"keyword.interface.go",
+				"keyword.map.go",
+				"keyword.struct.go",
+				"keyword.type.go"
+			],
+			"settings": {
+				"foreground": "#FF8EBE"
+			}
+		},
+		{
+			"name": "Go Operators",
+			"scope": [
+				"keyword.operator.address.go",
+				"keyword.operator.channel.go",
+				"keyword.operator.decrement.go",
+				"keyword.operator.increment.go",
+				"keyword.operator.comparison.go",
+				"keyword.operator.logical.go",
+				"keyword.operator.arithmetic.go",
+				"keyword.operator.arithmetic.bitwise.go",
+				"keyword.operator.ellipsis.go"
+			],
+			"settings": {
+				"foreground": "#EE9089"
+			}
+		},
+		{
 			"name": "Keyword Operator Assignment Go",
 			"scope": [
-				"keyword.operator.assignment.go",
-				"source.go"
+				"keyword.operator.assignment.go"
 			],
 			"settings": {
 				"foreground": "#EE9089"
@@ -703,8 +767,7 @@
 		"type.definition.struct": "#FFE4B5",
 		"type.struct": "#FFE4B5",
 		"type.slice": "#0EDFB6",
-		"type.string": "#0EDFB6",
-		"type.defaultLibrary.string": "#FF6188",
+		// "type.string": "#0EDFB6",
 		"type.defaultLibrary.number": "#FF6188",
 		"type.defaultLibrary.bool": "#FF6188",
 		"type.interface": "#F2D0FF",
